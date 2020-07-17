@@ -28,9 +28,9 @@ def predict():
     else:
         print ('Train the model first')
         return ('No model here to use')
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
-    return "<h1>Welcome to our server !!</h1>"
+    return jsonify({'msg': 'This is the Home'})
 if __name__ == '__main__':
     try:
         port = int(sys.argv[1]) # This is for a command-line input

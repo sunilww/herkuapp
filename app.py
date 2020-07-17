@@ -40,4 +40,4 @@ if __name__ == '__main__':
     print ('Model columns loaded')
 
     #app.run(port=443, debug=True)
-    app.run
+    app.run()

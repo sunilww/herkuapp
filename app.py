@@ -28,6 +28,9 @@ def predict():
     else:
         print ('Train the model first')
         return ('No model here to use')
+@app.route('/')
+def index():
+    return "<h1>Welcome to our server !!</h1>"
 if __name__ == '__main__':
     try:
         port = int(sys.argv[1]) # This is for a command-line input

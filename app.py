@@ -13,6 +13,10 @@ app = Flask(__name__)
 # a single home page 
 @app.route('/predict',methods=['POST'])
 def predict():
+    lr = joblib.load("model.pkl") # Load "model.pkl"
+    print ('Model loaded')
+    model_columns = joblib.load("model_columns.pkl") # Load "model_columns.pkl"
+    print ('Model columns loaded')
     if lr:
         try:
             json_ = request.json
@@ -39,10 +43,10 @@ if __name__ == '__main__':
     except:
         port = 12345 # If you don't provide any port the port will be set to 12345
     import joblib
-    lr = joblib.load("model.pkl") # Load "model.pkl"
-    print ('Model loaded')
-    model_columns = joblib.load("model_columns.pkl") # Load "model_columns.pkl"
-    print ('Model columns loaded')
+    #lr = joblib.load("model.pkl") # Load "model.pkl"
+    #print ('Model loaded')
+    #model_columns = joblib.load("model_columns.pkl") # Load "model_columns.pkl"
+    #print ('Model columns loaded')
 
     app.run(port=port, debug=True)
     #app.run()

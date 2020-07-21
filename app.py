@@ -19,6 +19,7 @@ def predict():
     print ('Model columns loaded')
     if lr:
         try:
+            print('json')
             json_ = request.json
             print(json_)
             query = pd.get_dummies(pd.DataFrame(json_))
@@ -29,7 +30,7 @@ def predict():
             return jsonify({'prediction': str(prediction)})
 
         except:
-
+            print('exception')
             return jsonify({'trace': traceback.format_exc()})
     else:
         print ('Train the model first')
